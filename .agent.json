@@ -1,0 +1,10 @@
+{
+  "generator": "project-bundle-v2",
+  "status": "validated",
+  "date": "2026-09-24",
+  "slug": "rag-adaptive-k-retrieval-eval",
+  "description": "Evaluates adaptive relevance-threshold context selection against fixed top-3 retrieval on a 16-doc synthetic corpus, measuring hit rate and context efficiency.",
+  "method": "Algorithm: TF-IDF (1-gram, sublinear) cosine-similarity retrieval over 16 synthetic docs (4 topics x 4 docs, disjoint topic vocabularies + shared stopword-like filler). Per query, select docs where sim > mean(query_sims) + 0.5*std(query_sims); fallback to top-1 if none pass. Baseline: fixed top-3 retrieval (always returns exactly 3 docs regardless of scores). Data: n_samples queries of 5 words each (3 topic-relevant + 2 cross-topic noise); y = gold document index (0-15). No temporal ordering; i.i.d. synthetic. No train/test split needed (retrieval is unsupervised); all queries evaluated. Metrics: hit_at_1 (higher=better, gold doc ranked #1), hit_at_k (higher=better, gold doc present in selected context), avg_context_size (lower=better, mean docs selected per query). Baseline hit_at_k is bounded by top-3 ranking; adaptive-k trades some recall for smaller context.",
+  "category": "LLM development: offline retrieval, RAG retrieval evaluation or prompt evaluation",
+  "bundle_sha256": "9b5f2ead03b35cb1d231ca4cf4fc23b5d4da6e6fb3324e56c227c9b701d71118"
+}

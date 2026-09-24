@@ -1,0 +1,14 @@
+{
+  "n_samples": 256,
+  "metrics": {
+    "hit_at_1": 0.60546875,
+    "hit_at_k": 1.0,
+    "avg_context_size": 4.640625
+  },
+  "baseline_metrics": {
+    "hit_at_1": 0.60546875,
+    "hit_at_k": 0.90625,
+    "avg_context_size": 3.0
+  },
+  "explanation": "Adaptive-k selects docs where cosine similarity exceeds mean + 0.5*std of per-query similarities (fallback: top-1). Baseline always returns fixed top-3. Corpus: 16 docs, 4 topics x 4 docs, disjoint topic vocabularies. Queries: 5 words (3 topic-relevant + 2 cross-topic noise). No train/test split needed (unsupervised retrieval); all queries evaluated."
+}
